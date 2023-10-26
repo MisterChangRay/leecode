@@ -1,0 +1,33 @@
+### 86. 给你一个链表的头节点 head 和一个特定值 x ，请你对链表进行分隔，使得所有 小于 x 的节点都出现在 大于或等于 x 的节点之前。你应当 保留 两个分区中每个节点的初始相对位置。
+
+注意虚拟头节点使用，以及需要注意链表赋值时并不只是赋值了一个节点！！！
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
+        listForL = ListNode()
+        rootl = listForL
+        listForG = ListNode()
+        rootg = listForG
+     
+
+        current = head
+        while(current != None):
+            if(current.val < x):
+                listForL.next = ListNode( current.val)
+                listForL = listForL.next 
+            else :
+                listForG.next = ListNode( current.val)
+                listForG = listForG.next 
+            current = current.next
+        
+        listForL.next = rootg.next
+        return rootl.next
+
+
+```
