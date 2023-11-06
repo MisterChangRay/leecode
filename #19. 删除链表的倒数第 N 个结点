@@ -1,0 +1,51 @@
+每日一题，双指针链表遍历
+
+思路10分钟，实现3小时，真是脑子不灵光了。
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        
+        root = head
+        tmp = root
+        i = 0
+        nodei = root
+        nodej = root
+        nodek = root
+        while(True):
+            if(tmp == None):
+                break
+            #print(f"第{i}次循环,", nodei.val, nodej.val,nodek.val)
+            i+=1
+            if(i > n + 1):
+                nodek = nodek.next
+
+            if(i > n - 1):
+                nodei = nodei.next
+            
+            if(i > n):
+                nodej = nodej.next
+
+            
+    
+            tmp = tmp.next
+
+        print("333", nodei, "---",  nodej, "---", nodek)
+            
+        if(n <= 0):
+            return root
+        elif(nodej == root):
+            return nodej.next
+        
+        else :
+            nodek.next  = nodei
+        return root
+
+
+
+```
