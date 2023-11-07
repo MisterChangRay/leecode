@@ -1,0 +1,27 @@
+快慢指针是个很实用的技巧。
+发明这个的人真的是个天才
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        nodei = head
+        nodej = head
+  
+        
+        while(True):
+            nodei = nodei.next
+            if(nodei == None):
+                break
+            nodej = nodej.next
+
+            nodei = nodei.next
+            if(nodei == None):
+                break
+            
+        return nodej
+```
