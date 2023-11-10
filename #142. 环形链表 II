@@ -1,0 +1,24 @@
+说实话这个有点烧脑子
+
+首先想到的是暴力破解，遍历每个对象取地址，如果有指向之前的则直接返回即可
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        newHead = ListNode(next=head)
+        objs = {}
+        tmp2 = newHead.next
+        while(tmp2 != None):
+            key = str(id(tmp2))
+            if key in objs:
+                return tmp2
+            objs[key] = True
+            tmp2 = tmp2.next
+
+        return None
+```
