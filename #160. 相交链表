@@ -1,0 +1,41 @@
+这道题确实有点技巧性
+
+我原本思路是，两者交替前进，每前进一步则再后续链表进行搜索。但是这个很容易超时。
+
+解题思路确实是会者不难，不会则难
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+
+        node1Chain = False
+        node2Chain = False
+        node1 = node1head = ListNode(next=headA)
+        node2 = node2head = ListNode(next=headB)
+        while(True):
+            if(node1 == node2):
+                return node1
+            if(node1.next == None):
+                if(node1Chain == False):
+                    node1 = node2head
+                    node1Chain = True
+                else:
+                    return None
+            if(node2.next == None):
+                if(node2Chain == False):
+                    node2 = node1head
+                    node2Chain = True
+                else:
+                    return None
+            node1 = node1.next
+            node2 = node2.next
+            
+
+        
+```
