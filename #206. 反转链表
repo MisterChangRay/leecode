@@ -1,0 +1,24 @@
+206. 反转链表
+
+将链表反转，这个递归写起来最简单
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        a = ListNode()
+        self.rev(a,head)
+        return a.next
+
+    def rev(self, head, n1):
+        if(n1 == None) :
+            return head
+        head = self.rev(head, n1.next)
+        n1.next = None
+        head.next = n1
+        return n1
+```
