@@ -22,3 +22,31 @@ class Solution:
         head.next = n1
         return n1
 ```
+
+
+遍历方式
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        tmp = head
+        head2 = None
+
+
+        while(tmp != None ):            
+            tmp2 = tmp.next
+            tmp.next  = head2
+            head2 = tmp
+
+            tmp = tmp2
+
+        return head2
+
+  
+
+```
